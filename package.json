@@ -10,7 +10,7 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
-		"@tessellate-pos/common": "file:tessellate-pos-common-0.3.0-dev.tgz",
+		"@tessellatepos/common": "workspace:*",
 		"react": "^19.2.0",
 		"react-dom": "^19.2.0",
 		"react-router": "^7.13.1"
