@@ -1,21 +1,9 @@
 import { defineConfig } from "vite";
-import path from "path";
-import react from "@vitejs/plugin-react";
+import { tessellatePlugin } from "@tessellatepos/plugin-sdk/vite";
 
-// https://vite.dev/config/
+// One `vite build` produces dist/client.js (from src/client.tsx) and
+// dist/index.js (from index.ts). React and the Tessellate SDKs aren't
+// bundled into the client: the plugin uses the frontend's instances.
 export default defineConfig({
-	plugins: [
-		react({
-			babel: {
-				plugins: [["babel-plugin-react-compiler"]],
-			},
-		}),
-	],
-	resolve: {
-		alias: {
-			"@": path.resolve(__dirname, "./src"),
-		},
-	},
-	optimizeDeps: {
-	},
+    plugins: [tessellatePlugin()],
 });

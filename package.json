@@ -1,32 +1,41 @@
 {
-	"name": "@tessellatepos/plugin-example",
-	"private": true,
-	"version": "0.0.0",
-	"type": "module",
-	"scripts": {
-		"dev": "vite",
-		"build": "tsc -b && vite build",
-		"lint": "eslint .",
-		"preview": "vite preview"
-	},
-	"dependencies": {
-		"@tessellatepos/common": "workspace:*",
-		"react": "^19.2.0",
-		"react-dom": "^19.2.0",
-		"react-router": "^7.13.1"
-	},
-	"devDependencies": {
-		"@eslint/js": "^9.39.1",
-		"@types/node": "^24.10.1",
-		"@types/react": "^19.2.7",
-		"@types/react-dom": "^19.2.3",
-		"@vitejs/plugin-react": "^5.1.1",
-		"eslint": "^9.39.1",
-		"eslint-plugin-react-hooks": "^7.0.1",
-		"eslint-plugin-react-refresh": "^0.4.24",
-		"globals": "^16.5.0",
-		"typescript": "~5.9.3",
-		"typescript-eslint": "^8.48.0",
-		"vite": "^7.3.1"
-	}
+    "name": "loyalty-sidebar",
+    "version": "0.1.0",
+    "description": "Reference Tessellate plugin: loyalty points across every UI mount, with its own API routes, database table, hook, and event listener.",
+    "license": "MIT",
+    "author": "Tessellate POS",
+    "type": "module",
+    "main": "dist/index.js",
+    "scripts": {
+        "build": "vite build",
+        "dev": "vite build --watch",
+        "import:test-data": "docker compose up -d postgres && docker compose exec -T postgres psql -v ON_ERROR_STOP=1 -U tessellate_user -d tessellate_db -f /test-data/import.sql && docker compose restart backend",
+        "typecheck": "tsc -b",
+        "lint": "eslint ."
+    },
+    "engines": {
+        "tessellate": "0.1.0-alpha"
+    },
+    "tessellate": {
+        "permissions": [
+            "CART"
+        ]
+    },
+    "dependencies": {
+        "@tessellatepos/plugin-sdk": "0.0.2-alpha",
+        "@tessellatepos/sdk": "0.0.1-alpha"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.39.5",
+        "@types/node": "^24.10.9",
+        "@types/react": "^19.2.7",
+        "eslint": "^9.39.5",
+        "eslint-plugin-react-hooks": "^7.1.1",
+        "eslint-plugin-react-refresh": "^0.5.5",
+        "globals": "^17.11.0",
+        "react": "^19.2.0",
+        "typescript": "~5.9.3",
+        "typescript-eslint": "^8.68.0",
+        "vite": "^7.3.1"
+    }
 }
