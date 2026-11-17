@@ -3,6 +3,7 @@ import {
     type FrontendPlugin,
 } from "@tessellatepos/plugin-sdk";
 import { CheckoutFooter } from "./mounts/CheckoutFooter.tsx";
+import { DashboardWidget } from "./mounts/DashboardWidget.tsx";
 import { LedgerPage } from "./mounts/LedgerPage.tsx";
 import { LoyaltySidebar } from "./mounts/LoyaltySidebar.tsx";
 import { ReceiptPoints } from "./mounts/ReceiptPoints.tsx";
@@ -30,7 +31,12 @@ export default function register(plugin: FrontendPlugin) {
     });
     plugin.register("ui", {
         mount: PluginUIMountPoint.SETTINGS_TAB,
+        label: "Loyalty",
         component: SettingsCard,
+    });
+    plugin.register("ui", {
+        mount: PluginUIMountPoint.DASHBOARD_WIDGET,
+        component: DashboardWidget,
     });
     plugin.register("ui", {
         mount: PluginUIMountPoint.PAGE,
