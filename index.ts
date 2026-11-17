@@ -41,7 +41,7 @@ export default function register(plugin: ServerPlugin) {
                         name: "id",
                         type: PluginColumnType.INTEGER,
                         primaryKey: true,
-                        auto_increment: true,
+                        autoIncrement: true,
                     },
                     {
                         name: "order_id",
